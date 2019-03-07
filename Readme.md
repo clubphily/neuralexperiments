@@ -6,7 +6,7 @@ A good entry point into all that matrix and vector math again is [this very ligh
 [The example](./supersimple.jl) was kept super-brief as it looks good. In the next example I will try out how functions work in [Julia](https://julialang.org/).
 
 ## Adding some hidden layers
-This will be a port of [this code](https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6).
+Another [rather light example](https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6). It was interesting to work with functions and still keep the script character by using global variables in [Julia](https://julialang.org/). The example itself is a nice introduction into back-propagation and cost functions. In respect of [Julia](https://julialang.org/) syntax, a nice feature is the usage of ['.'](https://docs.julialang.org/en/v1/manual/mathematical-operations/#man-dot-operators-1) for any function. On the other handside the usage of * vs. .* is not necessarily intuitive but I guess one gets used to it.
 
 ## More hidden layers
 This will be a port of [this code](https://medium.freecodecamp.org/building-a-3-layer-neural-network-from-scratch-99239c4af5d3).
