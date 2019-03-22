@@ -9,7 +9,9 @@ A good entry point into all that matrix and vector math again is [this very ligh
 Another [rather light example](https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6). It was interesting to work with functions and still keep the script character by using global variables in [Julia](https://julialang.org/). The example itself is a nice introduction into back-propagation and cost functions. In respect of [Julia](https://julialang.org/) syntax, a nice feature is the usage of ['.'](https://docs.julialang.org/en/v1/manual/mathematical-operations/#man-dot-operators-1) for any function. On the other handside the usage of * vs. .* is not necessarily intuitive but I guess one gets used to it.
 
 ## More hidden layers
-This will be a port of [this code](https://medium.freecodecamp.org/building-a-3-layer-neural-network-from-scratch-99239c4af5d3).
+Ported [this code](https://medium.freecodecamp.org/building-a-3-layer-neural-network-from-scratch-99239c4af5d3). It was interesting to dive deeper into [Julia](https://julialang.org/)'s abyss. A interesting addition was how to load [DataFrames](https://juliadata.github.io/DataFrames.jl/stable/index.html) from CSV files and using [MLMetrics](https://github.com/JuliaML/MLMetrics.jl) to calculate model accuracy. Plotting was not yet added but will follow shortly. What was also astonishing but not new is how strongly accuracy is influenced by the selection of the right randomised set of initial parameters for each layer. A few plots will underline that.
+
+Now on to convolutional networks.
 
 ## Apply some real images
 As a last experiment a compression algorithm will be implemented based on [this idea](https://hackernoon.com/using-ai-to-super-compress-images-5a948cf09489).
