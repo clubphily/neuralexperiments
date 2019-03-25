@@ -13,7 +13,7 @@ Ported [this code](https://medium.freecodecamp.org/building-a-3-layer-neural-net
 
 What was also astonishing but not new is how strongly accuracy is influenced by the selection of the right randomised set of initial parameters for each layer. A few plots for a different initialisation of MersenneTwister are below. MersenneTwister(1024) even converges to 100% towards the end.
 
-![MersenneTwister(0)](./images/0_accuarcy.svg)
+![MersenneTwister(0)](https://github.com/clubphily/neuralexperiments/blob/master/images/0_accuracy.svg)
 ![MersenneTwister(16)](./images/16_accuarcy.svg)
 ![MersenneTwister(42)](./images/42_accuarcy.svg)
 ![MersenneTwister(64)](./images/64_accuarcy.svg)
