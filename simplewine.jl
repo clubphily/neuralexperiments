@@ -1,4 +1,4 @@
-using CSV, Random, LinearAlgebra, DataFrames, MLMetrics
+using CSV, Random, LinearAlgebra, DataFrames, MLMetrics, Gadfly
 
 function initialize_parameters(nn_input_dim, nn_hidden_dim, nn_output_dim)
     W1 = 2 * randn(rnd, Float64, (nn_input_dim, nn_hidden_dim)) .- 1
@@ -72,17 +72,18 @@ function update_parameters(model, grads, learning_rate)
 end
 
 function train(model, X_, y_, learning_rate, epochs, print_loss)
-    for i = 1:epochs
+    for i = 0:epochs
         cache = forward_prop(model, X_)
         grads = backward_prop(model, cache, y_)
         model = update_parameters(model, grads, learning_rate)
-        if print_loss && i % 40 == 0
+        if i % 10 == 0
             a3 = cache["a3"]
-            println("Loss after iteration $(i): $(softmax_loss(y_, a3))")
+            print_loss && println("Loss after iteration $(i): $(softmax_loss(y_, a3))")
             y_hat = argmax(a3, dims=2)
             y_true = argmax(y_, dims=2)
-            println("Accuracy after iteration $(i): $(accuracy(y_hat, y_true)*100)%")
-            append!(losses, accuracy(y_hat, y_true)*100)
+            y_accuracy = accuracy(y_hat, y_true)*100
+            print_loss && println("Accuracy after iteration $(i): $(y_accuracy)%")
+            append!(losses, y_accuracy)
         end
     end
 end
@@ -90,7 +91,13 @@ end
 wine_df = CSV.read("./data/W1data.csv")
 y = convert(Matrix, wine_df[[:Cultivar_1, :Cultivar_2, :Cultivar_3]])
 X = convert(Matrix, wine_df[:, 1:13])
-losses = zeros(0)
-rnd = MersenneTwister(64)
-model = initialize_parameters(13, 5, 3)
-model = train(model, X, y, 0.07, 4500, true)
+set_default_plot_size(14cm, 8cm)
+
+for rnd_init in [0, 16, 42, 64, 92, 512, 1024]
+    global losses = zeros(0)
+    global rnd = MersenneTwister(rnd_init)
+    model = initialize_parameters(13, 5, 3)
+    model = train(model, X, y, 0.07, 4500, true)
+    p = plot(y=losses, Geom.line, Guide.ylabel("Accuracy"), Guide.xlabel("Every 10th Epoch"), Guide.title("MersenneTwister($(rnd_init))"))
+    p |> SVG("./images/$(rnd_init)_accuracy.svg")
+end
