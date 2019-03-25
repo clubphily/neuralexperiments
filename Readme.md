@@ -13,13 +13,13 @@ Ported [this code](https://medium.freecodecamp.org/building-a-3-layer-neural-net
 
 What was also astonishing but not new is how strongly accuracy is influenced by the selection of the right randomised set of initial parameters for each layer. A few plots for a different initialisation of MersenneTwister are below. MersenneTwister(1024) even converges to 100% towards the end.
 
-![MersenneTwister(0)](https://github.com/clubphily/neuralexperiments/blob/master/images/0_accuracy.svg)
-![MersenneTwister(16)](https://github.com/clubphily/neuralexperiments/blob/master/images/16_accuarcy.svg)
-![MersenneTwister(42)](https://github.com/clubphily/neuralexperiments/blob/master/images/42_accuarcy.svg)
-![MersenneTwister(64)](https://github.com/clubphily/neuralexperiments/blob/master/images/64_accuarcy.svg)
-![MersenneTwister(92)](https://github.com/clubphily/neuralexperiments/blob/master/images/92_accuarcy.svg)
-![MersenneTwister(512)](https://github.com/clubphily/neuralexperiments/blob/master/images/512_accuarcy.svg)
-![MersenneTwister(1024)](https://github.com/clubphily/neuralexperiments/blob/master/images/1024_accuarcy.svg)
+![MersenneTwister(0)](./images/0_accuracy.svg)
+![MersenneTwister(16)](./images/16_accuracy.svg)
+![MersenneTwister(42)](./images/42_accuracy.svg)
+![MersenneTwister(64)](./images/64_accuracy.svg)
+![MersenneTwister(92)](./images/92_accuracy.svg)
+![MersenneTwister(512)](./images/512_accuracy.svg)
+![MersenneTwister(1024)](./images/1024_accuracy.svg)
 
 ## Apply some real images
 As a last experiment a compression algorithm will be implemented based on [this idea](https://hackernoon.com/using-ai-to-super-compress-images-5a948cf09489).
